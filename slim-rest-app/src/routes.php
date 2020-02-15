@@ -7,11 +7,12 @@ use Slim\Http\Response;
 return function (App $app) {
     $container = $app->getContainer();
 
-    $app->get('/[{name}]', function (Request $request, Response $response, array $args) use ($container) {
-        // Sample log message
-        $container->get('logger')->info("Slim-Skeleton '/' route");
-
-        // Render index view
-        return $container->get('renderer')->render($response, 'index.phtml', $args);
+    /** 郵便番号から住所情報を取得する. */
+    $app->get("/zipcode[/{zipcode}]", function (Request $request, Response $response, array $args) use ($container) {
+        $zipcode = empty($args) ? null : $args['zipcode'];
+        $mapper = new ZipcodeMapper($this->db);
+        $addresses = $mapper->getAddress($zipcode);
+        $container->get('logger')->info('addresses -> ' . print_r($addresses, true));
+        return json_encode($addresses, JSON_UNESCAPED_UNICODE);
     });
 };
