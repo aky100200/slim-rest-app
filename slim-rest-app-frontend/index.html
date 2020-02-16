@@ -4,18 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="vender/bootstrap/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
     <title>郵便番号検索</title>
 </head>
 
 <body>
-    <h2>郵便番号検索</h2>
-    <p>
-        <input type="text" name="zipcode" id="zipcode">
-        <button onclick="searchZipcode()">検索</button>
-    </p>
-    <h3 id="result" name="result"></h3>
+    <div class="jumbotron container" style="margin-top: 10px;">
+        <h3 style="margin: 10px;">郵便番号検索</h3>
+        <hr>
+        <p style="margin: 10px;">郵便番号から住所を検索します。</p>
+        <div class="input-group mb-2" style="margin: 10px;">
+            <input type="text" name="zipcode" id="zipcode" class="form-control">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-primary" onclick="searchZipcode()">検索</button>
+            </div>
+        </div>
+        <p id="result" name="result" style="margin: 20px 10px 10px 10px;"></p>
+    </div>
 </body>
 
 </html>

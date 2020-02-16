@@ -8,7 +8,8 @@ function searchZipcode() {
     url: `http://localhost:8080/zipcode/${zipcode}`,
     success: result => {
       $('#result').empty();
-      $('#result').append(result.map(e => e.prefecture + e.city + e.town + '<br>').join());
+      const address = result.map(e => e.prefecture + e.city + e.town)[0];
+      $('#result').append("入力された住所は <strong>" + address + "</strong> です。");
     }
   });
 }
