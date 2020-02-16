@@ -6,13 +6,9 @@ function searchZipcode() {
   }
   $.ajax({
     url: `http://localhost:8080/zipcode/${zipcode}`,
-    success: function (result) {
+    success: result => {
       $('#result').empty();
-      let res = '';
-      result.forEach(e => {
-        res += e.prefecture + e.city + e.town + '<br>';
-      });
-      $('#result').append(res);
+      $('#result').append(result.map(e => e.prefecture + e.city + e.town + '<br>').join());
     }
-  })
+  });
 }
