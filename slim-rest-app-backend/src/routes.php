@@ -12,9 +12,8 @@ return function (App $app) {
         $zipcode = empty($args) ? null : $args['zipcode'];
         $mapper = new ZipcodeMapper($this->db);
         $addresses = $mapper->getAddress($zipcode);
-        $newResponse = $response->withAddedHeader('Access-Control-Allow-Origin', '*');
         $container->get('logger')->info('addresses -> ' . print_r($addresses, true));
-        $newResponse = $newResponse->withJson($addresses, 200, JSON_UNESCAPED_UNICODE);
-        return $newResponse;
+        return $response->withAddedHeader('Access-Control-Allow-Origin', '*')
+            ->withJson($addresses, 200, JSON_UNESCAPED_UNICODE);
     });
 };
