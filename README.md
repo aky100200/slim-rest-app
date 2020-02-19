@@ -36,3 +36,8 @@ Slim3系でのRESTAPIさんぷる。
 * 市町村名(ｶﾅ)
 * 町域名(ｶﾅ)
 
+## サーバー
+frontendとbackendでサーバを別にする。  
+
+* front-server-start.bat
+* service-start.bat
