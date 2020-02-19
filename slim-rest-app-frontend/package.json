@@ -1,0 +1,15 @@
+{
+    "name": "slim-rest-app-frontend",
+    "version": "1.0.0",
+    "description": "slim-rest-app-frontend",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "http-server -p 8000"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "http-server": "^0.12.1"
+    }
+}
