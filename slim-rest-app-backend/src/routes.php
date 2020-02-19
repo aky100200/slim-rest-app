@@ -16,4 +16,9 @@ return function (App $app) {
         return $response->withAddedHeader('Access-Control-Allow-Origin', '*')
             ->withJson($addresses, 200, JSON_UNESCAPED_UNICODE);
     });
+
+    /** 郵便番号入力ページを促す文字列を返却. */
+    $app->get("/", function (Request $request, Response $response, array $args) use ($container) {
+        return "input url -> /zipcode/<postcode>.";
+    });
 };
