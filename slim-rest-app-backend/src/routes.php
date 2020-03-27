@@ -1,5 +1,6 @@
 <?php
 
+use Model\Address;
 use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -19,6 +20,17 @@ return function (App $app) {
 
     /** 郵便番号入力ページを促す文字列を返却. */
     $app->get("/", function (Request $request, Response $response, array $args) use ($container) {
-        return "input url -> /zipcode/<postcode>.";
+        //クエリビルダー
+        // $query = new QueryMapper();
+        // $ret = $query->select();
+        
+        //Model
+        $ret = Address::all();
+        // $ret = Address::where('id',2230058)->get();
+        // $ret = Address::where('town', '新羽町')->get();
+        // $ret = Address::count();
+        // return print_r($ret->toSql(), true);
+        return print_r($ret, true);
+        // return "input url -> /zipcode/<postcode>.";
     });
 };
