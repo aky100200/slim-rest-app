@@ -9,7 +9,7 @@ function searchZipcode() {
     success: result => {
       $('#result').css('display', 'block');
       $('#address').empty();
-      $('#address').append(result.map(e => e.prefecture + e.city + e.town)[0]);
+      $('#address').append(result);
     }
   });
 }
