@@ -11,12 +11,10 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// // class load
-// spl_autoload_register(function ($classname) {
-//     require(__DIR__ . "/../class/" . $classname . ".php");
-// });
-require(__DIR__ . "/../class/QueryMapper.php");
-require(__DIR__ . "/../class/Address.php");
+// class load
+spl_autoload_register(function ($classname) {
+    require(__DIR__ . "/../class/" . $classname . ".php");
+});
 
 session_start();
 
